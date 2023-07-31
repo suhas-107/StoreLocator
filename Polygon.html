@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet Polygon Example</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+  <form>
+    <label>Enter your polygon coordinates:</label><br>
+    <textarea id="coordinates"></textarea><br>
+    <button type="button" onclick="drawPolygon()">Draw Polygon</button>
+  </form>
+
+  <div id="mapid" style="height: 400px;"></div>
+
+  <script>
+    var map = L.map('mapid').setView([28.644800, 77.216721], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+      maxZoom: 18
+    }).addTo(map);
+
+    function drawPolygon() {
+      var coordinates = document.getElementById('coordinates').value;
+      var polygonCoords = JSON.parse(coordinates);
+      var polygon = L.polygon(polygonCoords, {
+        color: 'red',
+        weight: 2,
+        opacity: 0.5,
+        fillOpacity: 0.2
+      });
+      polygon.addTo(map);
+    }
+  </script>
+</body>
+</html>
+
+<!-- [
+  [28.646176, 77.217614],
+  [28.646045, 77.217774],
+  [28.645925, 77.217485],
+  [28.646045, 77.216950],
+  [28.646397, 77.217204],
+  [28.646540, 77.217956],
+  [28.646634, 77.218727],
+  [28.646410, 77.219005],
+  [28.645915, 77.218663],
+  [28.645680, 77.218156],
+  [28.645680, 77.217506],
+  [28.645800, 77.217110],
+  [28.645915, 77.216950],
+  [28.646097, 77.216850]
+]
+ -->

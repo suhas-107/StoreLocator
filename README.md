@@ -1,2 +1,5 @@
-# StoreLocator
-This app finds all the stores in your nearby places also fetches users live location and displays polygon over the map
+# leaflet-store-locator
+
+Demo : https://codersgyan.github.io/leaflet-store-locator/
+
+![Locator using Leaflet](https://github.com/codersgyan/leaflet-store-locator/blob/main/locator.gif)
